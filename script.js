@@ -8,7 +8,7 @@ function writePassword() {
 
   passwordText.value = password;
 }
-
+//function for prompts for password criteria
 function userInput() {
   var lengthPassword = prompt("How many characters between 8 and 128 would you like?")
 
@@ -28,6 +28,7 @@ function userInput() {
     alert("You did not choose any characters! Feel free to start over!")
     userInput()
   }
+  //answers stored here in object
   var userAnswers = {
     length : lengthPassword,
     wantsUpper : upper,
@@ -37,15 +38,15 @@ function userInput() {
   }
   return userAnswers
 }
-  //add prompts for password criteria
   
+//function for getting random strings from arrays
 function getRandom (arr) {
     var randomIndex= Math.floor(Math.random() * arr.length);
     return arr[randomIndex]
 }
   
   
-  //created function generate password
+//created function generate password for integrating user input into functions for output
 function generatePassword() {
     //add variables
   var options = userInput()
@@ -75,6 +76,7 @@ function generatePassword() {
     possibleChars = possibleChars.concat(chars.spec);
   }
   
+  //while loop to append random desired characters to desired length
   while (result.length < options.length) {
     result.push(getRandom(possibleChars))
   }
